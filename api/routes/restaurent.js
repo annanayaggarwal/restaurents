@@ -41,7 +41,7 @@ router.post('/',upload.single('testimage'),(req,res,next)=>{
         _id:new mongoose.Types.ObjectId,
         name:req.body.name,
          img:{
-            data: fs.readFileSync(path.join(__dirname, '../uploads')+ req.file.filename),
+            data: fs.readFileSync(path.join(__dirname, '../uploads/')+ req.file.filename),
             contentType: "image/png"
          },  
          dishes:req.body.dishes,
@@ -63,6 +63,7 @@ router.post('/',upload.single('testimage'),(req,res,next)=>{
         })
     })
 })
+
 
 
 
