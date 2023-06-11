@@ -3,6 +3,10 @@ const app = express();
 const adminroutes = require('./api/routes/restaurent');
 const mongoose = require('mongoose');
 const bodyparser = require('body-parser');
+const fileupload = require('express-fileupload')
+
+
+
 
 mongoose.set('strictQuery', false);
 mongoose.connect('mongodb+srv://annanay:annanay2003@sbs.0egtqus.mongodb.net/?retryWrites=true&w=majority',{
@@ -14,6 +18,9 @@ mongoose.connect('mongodb+srv://annanay:annanay2003@sbs.0egtqus.mongodb.net/?ret
     console.log(err)
 })
 
+app.use(fileupload({
+    useTempFiles:true
+}))
 
 app.use(bodyparser.urlencoded({extended:false}));
 app.use(bodyparser.json());

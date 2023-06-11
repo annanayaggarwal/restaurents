@@ -1,15 +1,11 @@
 const mongoose = require('mongoose');
+// const validator = require('validator')
 
 const adminSchema = new mongoose.Schema({
     _id:mongoose.Schema.Types.ObjectId,
     name:{
         type: String,
         required: [true, "Please Enter restaurant Name"]
-    },
-    
-    img:{
-        data:Buffer,
-        contentType:String
     },
 
     dishes:{
@@ -19,9 +15,9 @@ const adminSchema = new mongoose.Schema({
 
     rating:{
         type:Number,
-        required:[true],
-        maxLength:[5,"maximum 5 star rating"],
-        minLength:[1,"wrong rating"]
+    },
+    img:{
+        type:String
     }
 })
 
